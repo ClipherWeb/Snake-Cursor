@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
+}
+
+body {
+  background-color: #000;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Snake dots style */
+.snake-dot {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #00f2ff;
+  pointer-events: none;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+  transition: background 0.3s ease;
+  box-shadow: 0 0 6px #00f2ff88;
+}
+
+.ripple {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #00f2ff80 20%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.5);
+  animation: ripple-effect 0.6s ease-out forwards;
+  z-index: 1000;
+}
+
+@keyframes ripple-effect {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2);
+  }
+}
+
+@media (pointer: fine) {
+  .snake-dot, .cursor-trail, .cursor-radius {
+    display: block;
+  }
+}
